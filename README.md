@@ -4,6 +4,8 @@ A framework for developer
 # ORM-Framework
 It is an ORM framework
 
+**Note : You should have JAVA_HOME set in your path if you're using Linux or Mac
+
 Using this framword, developer do not need to write SQL statement. There are some method which developer can use like **save,update,delete,query,view**
 
 I made this for MySQL
