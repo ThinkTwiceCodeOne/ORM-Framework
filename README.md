@@ -27,14 +27,52 @@ First you need to make a **conf.json** file which should have following this and
 }
 ```
 
-```
-DataManager dm=DataManager.getDataManager()
-```
-Now when you run this it'll create **POJO** files for all the tables that is in you DataBase which you specify in **conf.json** for you in **src** folder and compiled pojo classes in a jar file in **dist** folder. Name of jar file will be taken from conf.json.
+First you need to run this code in a file like this so it'll create **POJO** classes
 
+Now when you run this it'll create **POJO** files for all the tables that is in you DataBase which you specify in **conf.json** for you in **src** folder and compiled pojo classes in a jar file in **dist** folder. Name of jar file will be taken from conf.json.
+```
+import java.util.Date;
+import java.text.*;
+import java.util.*;
+import com.blue.code.annotations.*;
+import com.blue.code.DataManager.*;
+class testpsp
+{
+public static void main(String gg[])
+{
+try
+{
+DataManager dm=DataManager.getDataManager()
+}catch(Exception e)
+{
+System.out.println(e);
+}
+}
+```
+Now you need to compile and run
+
+To Compile i use on my machine line this 
+
+```
+javac -classpath "/Users/yashmundra/Desktop/del/orm/lib/*:/Users/yashmundra/Desktop/del/orm:." *.java
+```
+
+To run
+
+```
+java -classpath "/Users/yashmundra/Desktop/del/orm/lib/*:/Users/yashmundra/Desktop/del/orm:." testpsp
+```
+
+Now you can edit the java file for different operation
 Now suppose you want to **save** a record in Student table so you write 
 
+You've to write this at very first line so you can get DataManager object.
 ```
+DataManager dm=DataManager.getDataManager();
+```
+
+```
+DataManager dm=DataManager.getDataManager();    
 dm.begin();
 Student s=new Student();
 s.setfirstName("Ishan");
@@ -56,6 +94,22 @@ System.out.println(e);
 dm.save(s).fire();
 dm.end();
 ```
+
+To compile and run this code
+
+
+
+To Compile i use on my machine line this 
+
+```
+javac -classpath "/Users/yashmundra/Desktop/del/orm/lib/*:/Users/yashmundra/Desktop/del/orm/dist:." *.java
+```
+To run
+
+```
+java -classpath "/Users/yashmundra/Desktop/del/orm/lib/*:/Users/yashmundra/Desktop/del/orm/dist:." testpsp
+```
+
 Same code for **Update** also just use like this 
 
 ```
